@@ -30,7 +30,8 @@ const Footer = () => {
                 </div>
             </div>
             <div className='my-10 text-center'>
-                <p>Copyright © 2022 - All right reserved by ACME Industries Ltd</p>
+                <p>Develop By Dipankar</p>
+                <p>Copyright © 2022 </p>
             </div>
         </footer>
     );
