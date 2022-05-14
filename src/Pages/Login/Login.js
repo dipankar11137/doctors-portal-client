@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from 'react-router-dom';
@@ -19,6 +19,12 @@ const Login = () => {
     ] = useSignInWithEmailAndPassword(auth);
     let from = location.state?.from?.pathname || "/";
 
+    useEffect(() => {
+        if (user || gUser) {
+            navigate(from, { replace: true });
+        }
+    }, [user, gUser, from, navigate]);
+
     if (loading || gLoading) {
         return <Loading></Loading>
     }
@@ -26,9 +32,7 @@ const Login = () => {
     if (error || gError) {
         signInError = <p className='text-red-500'><small>{error?.message || gError?.message}</small></p>
     }
-    if (user || gUser) {
-        navigate(from, { replace: true });
-    }
+
 
     const onSubmit = data => {
         console.log(data)
@@ -38,9 +42,9 @@ const Login = () => {
 
     return (
         <div className='flex h-screen justify-center items-center'>
-            <div class="card w-96 shadow-xl">
-                <div class="card-body">
-                    <h2 class="text-center text-2xl">Login</h2>
+            <div className="card w-96 shadow-xl">
+                <div className="card-body">
+                    <h2 className="text-center text-2xl">Login</h2>
                     <form onSubmit={handleSubmit(onSubmit)}>
 
                         <div className="form-control w-full max-w-xs">
@@ -96,10 +100,10 @@ const Login = () => {
                         <input className='btn btn-primary w-full text-white' type="submit" value="Login" />
                     </form>
                     <p><small>New to Doctors Portal? <Link to='/signup' className='text-primary'>Create New Account</Link></small></p>
-                    <div class="divider">OR</div>
+                    <div className="divider">OR</div>
                     <button
                         onClick={() => signInWithGoogle()}
-                        class="btn btn-outline font-black"
+                        className="btn btn-outline font-black"
                     >Continue With Google</button>
                 </div>
             </div>
