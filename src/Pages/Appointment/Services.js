@@ -1,7 +1,8 @@
 import React from 'react';
 
 const Services = ({ service, setTreatment }) => {
-    const { name, slots, id } = service;
+    const { treatment, slots, name } = service;
+    console.log(treatment, slots)
     return (
 
         <div className="card lg:max-w-lg  shadow-xl ">
@@ -9,7 +10,7 @@ const Services = ({ service, setTreatment }) => {
                 <h2 className="text-2xl font-bold text-secondary">{name}</h2>
                 <p>
                     {
-                        slots.length
+                        slots.length > 0
                             ? <span>{slots[0]}</span>
                             : <span className='text-red-500'>Try Another Date</span>
                     }
