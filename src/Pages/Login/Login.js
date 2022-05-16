@@ -11,7 +11,7 @@ const Login = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
     const navigate = useNavigate();
     const location = useLocation();
-    const [token] = useToken(user || gUser);
+
 
     const [
         signInWithEmailAndPassword,
@@ -20,6 +20,7 @@ const Login = () => {
         error,
     ] = useSignInWithEmailAndPassword(auth);
     let from = location.state?.from?.pathname || "/";
+    const [token] = useToken(user || gUser);
 
     useEffect(() => {
         if (token) {
