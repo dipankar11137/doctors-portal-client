@@ -2,6 +2,7 @@ import React from 'react';
 
 const Services = ({ service, setTreatment }) => {
     const { treatment, slots, name } = service;
+
     console.log(treatment, slots)
     return (
 
