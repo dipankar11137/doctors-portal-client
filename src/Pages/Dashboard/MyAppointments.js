@@ -19,16 +19,16 @@ const MyAppointments = () => {
                     'authorization': `Bearer ${localStorage.getItem('accessToken')}`
                 }
             })
-                // .then(res => {
-                //     console.log('res', res);
-                //     // if (res.status === 401 || res.status === 403) {
-                // signOut(auth);
-                // localStorage.removeItem('accessToken');
-                // navigate('/');
-                //     // }
-                //     return res.json()
-                // })
-                .then(req => req.json())
+                .then(res => {
+                    console.log('res', res);
+                    if (res.status === 401 || res.status === 403) {
+                        signOut(auth);
+                        localStorage.removeItem('accessToken');
+                        navigate('/');
+                    }
+                    return res.json()
+                })
+                // .then(req => req.json())
                 .then(data => {
                     setAppointments(data)
                 })
