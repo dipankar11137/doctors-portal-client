@@ -49,8 +49,8 @@ const SignUp = () => {
             <div className="card w-96 shadow-xl">
                 <div className="card-body">
                     <h2 className="text-center text-2xl">SignUp</h2>
-                    <form onSubmit={handleSubmit(onSubmit)}>
 
+                    <form onSubmit={handleSubmit(onSubmit)}>
                         <div className="form-control w-full max-w-xs">
                             <label className="label">
                                 <span className="label-text">Name</span>
@@ -121,7 +121,7 @@ const SignUp = () => {
                         </div>
 
                         {signInError}
-                        <input className='btn btn-primary w-full text-white' type="submit" value="SignUp" />
+                        <input className='btn btn-primary w-full text-white' type="submit" value="Sign Up" />
                     </form>
                     <p><small>Already Have an Account ?   <Link to='/login' className='text-primary'>Please Login</Link></small></p>
                     <div className="divider">OR</div>

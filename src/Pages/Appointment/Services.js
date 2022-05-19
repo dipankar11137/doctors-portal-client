@@ -1,9 +1,9 @@
 import React from 'react';
 
 const Services = ({ service, setTreatment }) => {
-    const { treatment, slots, name } = service;
+    const { slots, name } = service;
 
-    console.log(treatment, slots)
+
     return (
 
         <div className="card lg:max-w-lg  shadow-xl ">

@@ -18,7 +18,7 @@ const AvailableAppointment = ({ date }) => {
     if (isLoading) {
         return <Loading></Loading>
     }
-
+    console.log(services);
 
     return (
         <div>
