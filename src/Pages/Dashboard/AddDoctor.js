@@ -19,7 +19,27 @@ const AddDoctor = () => {
     * YUP: to validate file: Search: Yup file validation for react hook form
    */
     const onSubmit = async data => {
-
+        const image = data.image[0];
+        const formData = new FormData();
+        formData.append('image', image);
+        const url = `https://api.imgbb.com/1/upload?key=${imageStorageKey}`;
+        fetch(url, {
+            method: 'POST',
+            body: formData
+        })
+            .then(res => res.json())
+            .then(result => {
+                if (result.success) {
+                    const img = result.data.url;
+                    const doctor = {
+                        name: data.name,
+                        email: data.email,
+                        specialty: data.specialty,
+                        img: img
+                    }
+                    // send to your data base
+                }
+            })
 
 
     };
